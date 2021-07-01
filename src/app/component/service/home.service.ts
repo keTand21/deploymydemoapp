@@ -15,22 +15,13 @@ export class HomeService {
         }
     });
 }
-
   constructor(private _http : HttpClient) { }
-
-  creatUser(user: any) {
-    return this._http.post("http://localhost:3000/registraction",user) ;
+  creatEmployee(user: any) {
+    return this._http.post("http://localhost:3000/posts",user) ;
 
   } 
-
-  getallUser() {
-    return this._http.get("http://localhost:3000/registraction") ;
+  getallEmployee() {
+    return this._http.get("http://localhost:3000/posts") ;
   }
-
-  updateUser(user:any) {
-    return this._http.put("http://localhost:3000/registraction/" + user.id , user) ;
-  }
-
-
 
 }

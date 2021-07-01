@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './component/pages/pages/home/home.component';
-
+import { FillDetailsComponent } from './component/fill-details/fill-details.component';
+import { ShowDetailsComponent } from '../app/component/show-details/show-details.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/fillDetails',
     pathMatch: 'full',
     
   },
-  { path: 'home', loadChildren: () => import('../app/component/pages/pages/pages.module').then(m => m.PagesModule), },
-
   {
-    path: '**',
-    redirectTo: 'home/one'
-  }
+    path: 'fillDetails',
+    component:FillDetailsComponent
+    
+  },
+  {
+    path: 'showDetails',
+    component:ShowDetailsComponent
+    
+  },
+
 ];
 
 @NgModule({

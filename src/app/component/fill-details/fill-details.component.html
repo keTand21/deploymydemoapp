@@ -1,0 +1,89 @@
+ <form [formGroup]="employeeForm" >
+            <mat-card>
+                <mat-card-header style="background-color: blue; color: cornsilk; ">
+                    <mat-card-title style="margin: 8px;">Employee Details</mat-card-title>
+                </mat-card-header>
+                <br>
+                <mat-divider></mat-divider>
+                <div>
+                <mat-card-content>
+                    <br>
+               
+                    <div class="row">
+                        <div class="col-md-3">
+                            <mat-form-field style="width: 100%;">
+                                <input matInput formControlName="EmployeeId" placeholder="Employee Id" required>
+                                <mat-error *ngIf="hasError('EmployeeId', 'required')">Employee Id is required</mat-error>
+            
+                            </mat-form-field>
+                        </div>    
+                    </div>
+       
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field style="width: 100%;">
+                                <input matInput formControlName="EmployeeName" placeholder="Employee Name" required>
+                                <mat-error *ngIf="hasError('EmployeeName', 'required')">Employee Name is required</mat-error>
+
+                            </mat-form-field>
+                        </div>   
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                        <mat-form-field style="width: 100%;">
+                            <input matInput formControlName="EmailId" placeholder="Email Id"  required>
+                            <mat-error *ngIf="hasError('EmailId', 'required')">Email Id is required</mat-error>
+                            <mat-error *ngIf="hasError('EmailId', 'pattern')">Email id is must be valid</mat-error>
+
+                        </mat-form-field>
+                        </div>
+                    
+                        <div class="col-md-3">
+                        <mat-form-field style="width: 100%;">
+                            <input matInput  formControlName="MobileNo" placeholder="Mobile Number"
+                                onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"
+                                required>
+                                <mat-error *ngIf="hasError('MobileNo', 'required')">Mobile No is required</mat-error>
+                                <mat-error *ngIf="hasError('MobileNo', 'minlength')">Mobile number must be 10 digit number</mat-error>
+                                <mat-error *ngIf="hasError('MobileNo', 'maxlength')">Mobile number must be 10 digit number</mat-error>
+
+                        </mat-form-field>
+                 </div>
+                </div>
+
+                <div class="row">          
+                <mat-radio-group aria-label="Select an option" formControlName="Gender" (click)="genderdata($event)">
+                    <label >Gender</label>
+
+                    <mat-radio-button value="Male" class="maleredio">Male</mat-radio-button>
+                    <mat-radio-button value="Female" >Female</mat-radio-button>
+
+                <div *ngIf="gender" class="validgender">Gender is required</div>
+
+                </mat-radio-group>              
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field style="width: 100%;">
+                            <textarea matInput formControlName="Address" placeholder="Address" rows="2" required></textarea>
+                            <mat-error *ngIf="hasError('Address', 'required')">Address is required</mat-error>
+
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-6">
+                     <button mat-raised-button color="primary" class="save" (click)="onSave()" style="width: 100%;">SUBMIT</button>
+                   </div>
+                </div>
+
+               </mat-card-content>
+            </div>
+            </mat-card>
+        </form>
+        
+

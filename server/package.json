@@ -6,10 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ketan",
-  "license": "ISC",
-  "dependencies": {
-    "json-server": "^0.16.3",
-    "lodash": "^4.17.21"
-  }
+  "author": "ketanl",
+  "license": "ISC"
 }
